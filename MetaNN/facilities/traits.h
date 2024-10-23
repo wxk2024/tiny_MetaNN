@@ -2,8 +2,8 @@
 // Created by wxk on 2024/10/19.
 //
 
-#ifndef TRAITS_H
-#define TRAITS_H
+#ifndef FACILITY_TRAITS_H
+#define FACILITY_TRAITS_H
 #include <type_traits>
 #include <utility>
 namespace MetaNN {
