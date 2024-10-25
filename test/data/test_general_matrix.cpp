@@ -6,6 +6,9 @@
 #include <MetaNN/data/matrixs/cpu_matrix.h>
 #include <MetaNN/data/matrixs/trival_matrix.h>
 #include <MetaNN/data/matrixs/zero_matrix.h>
+#include <MetaNN/data/matrixs/one_hot_vector.h>
+#include <MetaNN/data/batch/matrix.h>
+#include <MetaNN/data/batch/array.h>
 #include "../facilities/calculate_tags.h"
 using namespace MetaNN;
 TEST_CASE("general matrix", "[matrix]") {
@@ -27,4 +30,12 @@ TEST_CASE("general matrix", "[matrix]") {
 
 TEST_CASE("trival matrix", "[matrix]") {
 REQUIRE(IsMatrix<TrivalMatrix<int,CheckElement, CheckDevice>> == true);
+}
+
+TEST_CASE("zero matrix","[matrix]") {
+    REQUIRE(IsMatrix<ZeroMatrix<int, CheckDevice>> == true);
+    REQUIRE(IsMatrix<ZeroMatrix<int, CheckDevice>&> == true);
+    REQUIRE(IsMatrix<ZeroMatrix<int, CheckDevice>&&> == true);
+    REQUIRE(IsMatrix<const ZeroMatrix<int, CheckDevice>&> == true);
+    REQUIRE(IsMatrix<const ZeroMatrix<int, CheckDevice>&&> == true);
 }

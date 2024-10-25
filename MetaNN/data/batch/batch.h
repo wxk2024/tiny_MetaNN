@@ -7,6 +7,8 @@
 #include <MetaNN/data/facilities/tags.h>
 namespace MetaNN
 {
+    // 用于表示基本的 列表类型！！特殊的列表类型是 Array 与 Duplicate
+    // 包括了：矩阵列表类，以及 标量列表类
     template<typename TElement, typename TDevice, typename TCategory>
     class Batch;
 

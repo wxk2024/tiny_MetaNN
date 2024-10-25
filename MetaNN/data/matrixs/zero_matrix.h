@@ -2,7 +2,7 @@
 // Created by wxk on 2024/10/23.
 //
 #include <MetaNN/data/facilities/tags.h>
-#include <MetaNN/data/matrices/matrices.h>
+#include <MetaNN/data/matrixs/matrix.h>
 #include <cassert>
 #include <stdexcept>
 
@@ -58,6 +58,7 @@ namespace MetaNN{
         }
 
     private:
+        // 只包含了行数和列数，大大减少了存储空间
         size_t m_rowNum;
         size_t m_colNum;
         EvalBuffer<Matrix<ElementType, DeviceType>> m_evalBuf;

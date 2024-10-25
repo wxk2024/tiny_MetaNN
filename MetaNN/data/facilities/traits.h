@@ -69,5 +69,59 @@ namespace MetaNN {
 
     template <typename T>
     constexpr bool IsBatchMatrix<const T&&> = IsBatchMatrix<T>;
+
+    // 实现的方式很新奇，类似与 switch 语句
+    template <typename T>
+    struct DataCategory_
+    {
+    private:
+        template <bool isScalar, bool isMatrix, bool isBatchScalar, bool isBatchMatrix, typename TDummy = void>
+        struct helper;
+
+        template <typename TDummy>
+        struct helper<true, false, false, false, TDummy>
+        {
+            using type = CategoryTags::Scalar;
+        };
+
+        template <typename TDummy>
+        struct helper<false, true, false, false, TDummy>
+        {
+            using type = CategoryTags::Matrix;
+        };
+
+        template <typename TDummy>
+        struct helper<false, false, true, false, TDummy>
+        {
+            using type = CategoryTags::BatchScalar;
+        };
+
+        template <typename TDummy>
+        struct helper<false, false, false, true, TDummy>
+        {
+            using type = CategoryTags::BatchMatrix;
+        };
+
+    public:
+        using type = typename helper<IsScalar<T>, IsMatrix<T>, IsBatchScalar<T>, IsBatchMatrix<T>>::type;
+    };
+
+    template <typename T>
+    using DataCategory = typename DataCategory_<T>::type;
+
+    template <typename T>
+    struct IsIterator_
+    {
+        template <typename R>
+        static std::true_type Test(typename std::iterator_traits<R>::iterator_category*);
+
+        template <typename R>
+        static std::false_type Test(...);
+
+        static constexpr bool value = decltype(Test<T>(nullptr))::value;
+    };
+
+    template <typename T>
+    constexpr bool IsIterator = IsIterator_<T>::value;
 }
 #endif //TRAITS_H
