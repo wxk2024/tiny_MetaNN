@@ -5,6 +5,7 @@
 #ifndef BATCH_H
 #define BATCH_H
 #include <MetaNN/data/facilities/tags.h>
+#include <MetaNN/data/facilities/traits.h>
 namespace MetaNN
 {
     // 用于表示基本的 列表类型！！特殊的列表类型是 Array 与 Duplicate

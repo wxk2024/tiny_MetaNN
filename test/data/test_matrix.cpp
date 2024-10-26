@@ -8,6 +8,10 @@
 #include <MetaNN/data/matrixs/zero_matrix.h>
 #include <MetaNN/data/matrixs/one_hot_vector.h>
 #include <MetaNN/data/batch/matrix.h>
+#include <MetaNN/data/batch/duplicate.h>
+#include <MetaNN/data/batch/scalar.h>
+#include <MetaNN/operators/facilities/category_cal.h>
+#include <MetaNN/operators/facilities/organizer.h>
 #include <MetaNN/data/batch/array.h>
 #include "../facilities/calculate_tags.h"
 using namespace MetaNN;

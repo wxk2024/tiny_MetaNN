@@ -6,6 +6,7 @@
 #define BATCH_MATRIX_H
 #include <MetaNN/data/batch/batch.h>
 #include <MetaNN/data/matrixs/matrix.h>
+#include <MetaNN/data/facilities/tags.h>
 #include <vector>
 
 namespace MetaNN

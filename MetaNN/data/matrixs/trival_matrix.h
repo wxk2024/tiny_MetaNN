@@ -19,7 +19,7 @@ namespace MetaNN{
         using DeviceType = TDevice;
 
     public:
-        TrivalMatrix(size_t p_rowNum, size_t p_colNum,
+        TrivalMatrix(std::size_t p_rowNum, size_t p_colNum,
                      TScalar p_val)
             : m_val(p_val)
             , m_rowNum(p_rowNum)
