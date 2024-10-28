@@ -5,6 +5,42 @@
 #ifndef TRAITS_H
 #define TRAITS_H
 namespace MetaNN {
+    template <typename TElem, typename TDevice> class Matrix;
+    template <typename TElem, typename TDevice> class Scalar;
+
+    template<typename TElement, typename TDevice, typename TCategory> class Batch;
+
+    template <typename TCategory, typename TElem, typename TDevice>
+    struct PrincipalDataType_;
+
+    template <typename TElem, typename TDevice>
+    struct PrincipalDataType_<CategoryTags::Scalar, TElem, TDevice>
+    {
+        using type = Scalar<TElem, TDevice>;
+    };
+
+    template <typename TElem, typename TDevice>
+    struct PrincipalDataType_<CategoryTags::Matrix, TElem, TDevice>
+    {
+        using type = Matrix<TElem, TDevice>;
+    };
+
+    template <typename TElem, typename TDevice>
+    struct PrincipalDataType_<CategoryTags::BatchMatrix, TElem, TDevice>
+    {
+        using type = Batch<TElem, TDevice, CategoryTags::Matrix>;
+    };
+
+    template <typename TElem, typename TDevice>
+    struct PrincipalDataType_<CategoryTags::BatchScalar, TElem, TDevice>
+    {
+        using type = Batch<TElem, TDevice, CategoryTags::Scalar>;
+    };
+
+    // 就是三个类型：scalar matrix batch
+    template <typename TCategory, typename TElem, typename TDevice>
+    using PrincipalDataType = typename PrincipalDataType_<TCategory, TElem, TDevice>::type;
+
     // 元函数 : 扩展点，拿到一个类型我要知道他是什么标签
     /// is scalar
     /// is scalar

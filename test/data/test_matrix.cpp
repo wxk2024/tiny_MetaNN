@@ -12,6 +12,10 @@
 #include <MetaNN/data/batch/scalar.h>
 #include <MetaNN/operators/facilities/category_cal.h>
 #include <MetaNN/operators/facilities/organizer.h>
+#include <MetaNN/operators/facilities/oper_seq.h>
+#include <MetaNN/operators/operators.h>
+#include <MetaNN/operators/sigmoid.h>
+#include <MetaNN/operators/add.h>
 #include <MetaNN/data/batch/array.h>
 #include "../facilities/calculate_tags.h"
 using namespace MetaNN;

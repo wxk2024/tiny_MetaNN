@@ -2,8 +2,8 @@
 // Created by wxk on 2024/10/26.
 //
 
-#ifndef TAGS_H
-#define TAGS_H
+#ifndef OPE_TAGS_H
+#define OPE_TAGS_H
 namespace MetaNN{
     struct UnaryOpTags
     {
