@@ -16,6 +16,8 @@
 #include <MetaNN/operators/operators.h>
 #include <MetaNN/operators/sigmoid.h>
 #include <MetaNN/operators/add.h>
+#include <MetaNN/operators/transpose.h>
+#include <MetaNN/operators/collapse.h>
 #include <MetaNN/data/batch/array.h>
 #include "../facilities/calculate_tags.h"
 using namespace MetaNN;
