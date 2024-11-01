@@ -8,7 +8,7 @@
 
 namespace MetaNN {
 	namespace NSPolicySelect {
-		// 实现不冲突的 policy 对象们的继承类的创建
+		// -------------实现不冲突的 policy 对象们的继承类的创建(多重继承)-------------
 		template<typename TPolicyCont>
 		struct PolicySelRes;
 
@@ -21,7 +21,7 @@ namespace MetaNN {
 				: public TCurPolicy, public PolicySelRes<PolicyContainer<TOtherPolicies...> > {
 		};
 
-		// 按照 major class 来挑选 policy
+		// 按照 major class 来挑选 policy,放到 MCO 容器中
 		template<typename MCO, typename TMajorClass, typename... TP>
 		struct MajorFilter_ {
 			using type = MCO;
@@ -31,6 +31,7 @@ namespace MetaNN {
 			typename TCurPolicy, typename... TP>
 		struct MajorFilter_<PolicyContainer<TFilteredPolicies...>, TMajorClass,
 					TCurPolicy, TP...> {
+			// 这个地方的 TDummy 参数，仅仅是为了应对 C++ 当中模板类中，不能有模板偏特化的限制
 			template<typename CurMajor, typename TDummy = void>
 			struct _impl // CurMajor 不满足 TMarjorClass 的要求，拿掉它，不让他进入PolicyContainer
 			{

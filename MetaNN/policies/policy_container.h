@@ -14,6 +14,7 @@ namespace MetaNN {
     template <typename...T>
     constexpr bool IsPolicyContainer<PolicyContainer<T...>> = true;
 
+    // 网络层的名字，以及网络层使用的策略
     template <typename TLayerName, typename...TPolicies>
     struct SubPolicyContainer;
 

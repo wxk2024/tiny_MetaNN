@@ -2,8 +2,8 @@
 // Created by wxk on 2024/11/1.
 //
 
-#ifndef ABS_H
-#define ABS_H
+#ifndef SIGN_H
+#define SIGN_H
 #include <MetaNN/data/facilities/traits.h>
 #include <MetaNN/data/matrixs/trival_matrix.h>
 // #include <MetaNN/evaluate/facilities/eval_plan.h>
@@ -14,7 +14,7 @@
 #include <utility>
 namespace MetaNN{
     template <typename TP>
-    struct OperAbs_
+    struct OperSign_
     {
         // valid check
     private:
@@ -26,16 +26,16 @@ namespace MetaNN{
     public:
         static auto Eval(TP&& p_m)
         {
-            using ResType = UnaryOp<UnaryOpTags::Abs, rawM>; // 运算模板
+            using ResType = UnaryOp<UnaryOpTags::Sign, rawM>;
             return ResType(std::forward<TP>(p_m));
         }
     };
 
     template <typename TP,
-              std::enable_if_t<OperAbs_<TP>::valid>* = nullptr>
-    auto Abs(TP&& p_m)
+              std::enable_if_t<OperSign_<TP>::valid>* = nullptr>
+    auto Sign(TP&& p_m)
     {
-        return OperAbs_<TP>::Eval(std::forward<TP>(p_m));
+        return OperSign_<TP>::Eval(std::forward<TP>(p_m));
     }
 }
-#endif //ABS_H
+#endif //SIGN_H

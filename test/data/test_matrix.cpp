@@ -24,6 +24,22 @@
 #include <MetaNN/operators/element_mul.h>
 #include <MetaNN/operators/interpolate.h>
 #include <MetaNN/operators/negative_log_likelihood.h>
+#include <MetaNN/operators/negative_log_likelihood_derivative.h>
+#include <MetaNN/operators/sigmoid_derivative.h>
+#include <MetaNN/operators/sign.h>
+#include <MetaNN/operators/softmax.h>
+#include <MetaNN/operators/softmax_derivative.h>
+#include <MetaNN/operators/substract.h>
+#include <MetaNN/operators/tanh.h>
+#include <MetaNN/operators/tanh_derivative.h>
+#include <MetaNN/meta_nn.h>
+#include <MetaNN/model_rel/param_initializer/facilities/policies.h>
+#include <MetaNN/model_rel/param_initializer/facilities/fill_with_spec_dist.h>
+#include <MetaNN/model_rel/param_initializer/uniform_filler.h>
+#include <MetaNN/model_rel/param_initializer/gaussian_filler.h>
+#include <MetaNN/model_rel/param_initializer/constant_filler.h>
+#include <MetaNN/model_rel/param_initializer/var_scale_filler.h>
+#include <MetaNN/model_rel/param_initializer/param_initializer.h>
 #include <MetaNN/data/batch/array.h>
 #include "../facilities/calculate_tags.h"
 using namespace MetaNN;
