@@ -18,6 +18,12 @@
 #include <MetaNN/operators/add.h>
 #include <MetaNN/operators/transpose.h>
 #include <MetaNN/operators/collapse.h>
+#include <MetaNN/operators/divide.h>
+#include <MetaNN/operators/abs.h>
+#include <MetaNN/operators/dot.h>
+#include <MetaNN/operators/element_mul.h>
+#include <MetaNN/operators/interpolate.h>
+#include <MetaNN/operators/negative_log_likelihood.h>
 #include <MetaNN/data/batch/array.h>
 #include "../facilities/calculate_tags.h"
 using namespace MetaNN;

@@ -12,15 +12,17 @@
 #include <cassert>
 #include <type_traits>
 #include <utility>
-namespace MetaNN{
-    template <>
-    struct OperCategory_<UnaryOpTags::Collapse, CategoryTags::BatchMatrix>
-    {
+
+namespace MetaNN {
+    /*折叠 collapse 操作就是将矩阵列表求和成一个矩阵 */
+    // 特化一下 运算结果类别
+    template<>
+    struct OperCategory_<UnaryOpTags::Collapse, CategoryTags::BatchMatrix> {
         using type = CategoryTags::Matrix;
     };
-    template <typename TP>
-struct OperCollapse_
-    {
+
+    template<typename TP>
+    struct OperCollapse_ {
         // valid check
     private:
         using rawM = std::decay_t<TP>;
@@ -29,17 +31,15 @@ struct OperCollapse_
         static constexpr bool valid = IsBatchMatrix<rawM>;
 
     public:
-        static auto Eval(TP&& p_m)
-        {
+        static auto Eval(TP &&p_m) {
             using ResType = UnaryOp<UnaryOpTags::Collapse, rawM>;
             return ResType(std::forward<TP>(p_m));
         }
     };
 
-    template <typename TP,
-              std::enable_if_t<OperCollapse_<TP>::valid>* = nullptr>
-    auto Collapse(TP&& p_m)
-    {
+    template<typename TP,
+        std::enable_if_t<OperCollapse_<TP>::valid>* = nullptr>
+    auto Collapse(TP &&p_m) {
         return OperCollapse_<TP>::Eval(std::forward<TP>(p_m));
     }
 }
