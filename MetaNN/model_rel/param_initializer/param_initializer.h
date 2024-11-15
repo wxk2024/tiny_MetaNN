@@ -8,6 +8,8 @@
 #include <string>
 #include <stdexcept>
 #include <MetaNN/model_rel/param_initializer/facilities/traits.h>
+#include <MetaNN/data_copy/data_copy.h>
+#include <MetaNN/data/dynamic.h>
 namespace MetaNN{
 template <typename TElem, typename TPolicyCont, typename TFillers>
 class ParamInitializer
@@ -79,12 +81,12 @@ public:
 
 private:
     TFillers m_filler;
-    std::map<std::string, Matrix<TElem, DeviceTags::CPU>> m_params;
+    std::map<std::string, Matrix<TElem, DeviceTags::CPU>> m_params;// 初始化器中保存的矩阵参数
 };
     template <typename TElem, typename...TPolicies>
     auto MakeInitializer()
     {
-        using npType = FillerTags2NamedParams<TPolicies...>;
+        using npType = FillerTags2NamedParams<TPolicies...>; // 异类词典对象 VarTypeDict<>
         using FilDictType = RemConstRef<decltype(npType::Create())>;
         return ParamInitializer<TElem, PolicyContainer<TPolicies...>, FilDictType>(npType::Create());
     }

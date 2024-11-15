@@ -5,6 +5,7 @@
 #ifndef PARAM_TRAITS_H
 #define PARAM_TRAITS_H
 #include <MetaNN/model_rel/param_initializer/facilities/policies.h>
+#include <MetaNN/policies/policy_operations.h>
 
 namespace MetaNN {
     namespace NSParamInit {
@@ -99,7 +100,7 @@ namespace MetaNN {
 
         template<typename... TPolicies>
         struct FillerTags2NamedParams_ {
-            using step1 = typename FillerTagFromPolicy_<std::tuple<>, TPolicies...>::type;
+            using step1 = typename FillerTagFromPolicy_<std::tuple<>, TPolicies...>::type;// 先得到 tag 的集合
             using type = typename TagDedupe_<VarTypeDict<>, step1>::type;
         };
     }

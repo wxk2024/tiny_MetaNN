@@ -44,22 +44,22 @@
 // #include <MetaNN/data_copy/data_copy.h>
 
 // #include <MetaNN/policies/inject_policy.h>
-// #include <MetaNN/layers/elementary/abs_layer.h>
-// #include <MetaNN/layers/elementary/add_layer.h>
-// #include <MetaNN/layers/elementary/bias_layer.h>
-// #include <MetaNN/layers/elementary/element_mul_layer.h>
-// #include <MetaNN/layers/elementary/interpolate_layer.h>
-// #include <MetaNN/layers/elementary/sigmoid_layer.h>
-// #include <MetaNN/layers/elementary/softmax_layer.h>
-// #include <MetaNN/layers/elementary/tanh_layer.h>
-// #include <MetaNN/layers/elementary/weight_layer.h>
+#include <MetaNN/layers/elementary/abs_layer.h>
+#include <MetaNN/layers/elementary/add_layer.h>
+#include <MetaNN/layers/elementary/bias_layer.h>
+#include <MetaNN/layers/elementary/element_mul_layer.h>
+#include <MetaNN/layers/elementary/interpolate_layer.h>
+#include <MetaNN/layers/elementary/sigmoid_layer.h>
+#include <MetaNN/layers/elementary/softmax_layer.h>
+#include <MetaNN/layers/elementary/tanh_layer.h>
+#include <MetaNN/layers/elementary/weight_layer.h>
 
 // #include <MetaNN/layers/compose/linear_layer.h>
 // #include <MetaNN/layers/compose/single_layer.h>
 
 // #include <MetaNN/layers/recurrent/recurrent_layer.h>
 
-// #include <MetaNN/layers/cost/negative_log_likelihood_layer.h>
+#include <MetaNN/layers/cost/negative_log_likelihood_layer.h>
 
 // #include <MetaNN/model_rel/param_initializer/constant_filler.h>
 // #include <MetaNN/model_rel/param_initializer/gaussian_filler.h>

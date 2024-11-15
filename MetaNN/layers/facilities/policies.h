@@ -6,12 +6,15 @@
 #define LAYER_POLICIES_H
 #include <MetaNN/policies/policy_macro_begin.h>
 #include <MetaNN/data/facilities/tags.h>
+#include <MetaNN/policies/inject_policy.h>
+#include <MetaNN/layers/facilities/common_io.h>
+#include <MetaNN/layers/facilities/interface_fun.h>
 namespace MetaNN {
     // ------------------反向传播的策略------------------
     struct FeedbackPolicy {
         using MajorClass = FeedbackPolicy;
-        struct IsUpdateValueCate;           // minor class
-        struct IsFeedbackOutputValueCate;   // minor class
+        struct IsUpdateValueCate;           // minor class:是否要对某个层的参数进行更新
+        struct IsFeedbackOutputValueCate;   // minor class:该层是否需要计算输出梯度
 
         static constexpr bool IsUpdate = false;
         static constexpr bool IsFeedbackOutput = false;
@@ -33,6 +36,7 @@ namespace MetaNN {
     ValuePolicyObj(PNoBatchMode,InputPolicy, BatchMode, false);
 
     // ------------------操作在那个平台上的策略，操作在什么类型数字的策略------------------
+    // 可以扩展到支持其他类型的计算单元 double 或者其他的计算设备 GPU
     struct OperandPolicy
     {
         using MajorClass = OperandPolicy;
