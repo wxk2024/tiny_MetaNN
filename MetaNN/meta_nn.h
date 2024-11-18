@@ -56,7 +56,7 @@
 
 // #include <MetaNN/layers/compose/linear_layer.h>
 // #include <MetaNN/layers/compose/single_layer.h>
-
+#include <MetaNN/layers/compose/compose_kernel.h>
 // #include <MetaNN/layers/recurrent/recurrent_layer.h>
 
 #include <MetaNN/layers/cost/negative_log_likelihood_layer.h>

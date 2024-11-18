@@ -6,7 +6,7 @@
 #define LAYER_TRAITS_H
 #include <list>
 #include <MetaNN/data/dynamic.h>
-#include <MetaNN/model_rel/grad_col/grad_collector.h>
+// #include <MetaNN/model_rel/grad_col/grad_collector.h>
 #include <stack>
 #include <stdexcept>
 namespace MetaNN
